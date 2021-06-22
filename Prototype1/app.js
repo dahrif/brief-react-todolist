@@ -1,12 +1,12 @@
 // Composant : Tâche
-class Task extends React.Component {
+class Tache extends React.Component {
     constructor(props) {
         super(props)
     }
 
     render() {
-        let class_name = 'task'
-        class_name += this.props.done ? ' task-success' : ' task-info';
+        let class_name = 'tache'
+        class_name += this.props.done ? ' tache-faite' : ' tache-info';
 
         return (
             <div className={class_name}>
@@ -20,10 +20,10 @@ class Task extends React.Component {
 // Application
 class App extends React.Component {
 
-    tasksArray = [
-        { value: 'Tâche 1', done: true },
-        { value: 'Tâche 2', done: false },
-        { value: 'Tâche 3', done: false }
+    tachesArray = [
+        { value: 'Ma tache 1', done: true },
+        { value: 'Ma tache 2', done: false },
+        { value: 'Ma tache 3', done: false }
     ];
 
     constructor(props) {
@@ -34,12 +34,12 @@ class App extends React.Component {
 
     render() {
 
-        let tasksArrayMap = this.tasksArray.map((task, i) => {
+        let tachesArrayMap = this.tachesArray.map((tache, i) => {
             return (
-                <Task
+                <Tache
                     key={i}
-                    value={task.value}
-                    done={task.done}
+                    value={tache.value}
+                    done={tache.done}
                 />
             )
         })
@@ -48,12 +48,12 @@ class App extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-6 col-sm-offset-3">
-                        <h1> Tâches à faire</h1>
+                        <h1> Mes taches</h1>
                         <form
                             id="form-add"
                             className="form-horizontal">
                             <div className="input-group">
-                                <input type="text" id="addInput" className="form-control" placeholder="Description de la tâche..." />
+                                <input type="text" id="addInput" className="form-control" placeholder="Entrer une tache ...." />
                                 <div className="input-group-btn">
                                     <button type="submit" className="btn btn-default">
                                         <span className="glyphicon glyphicon-plus-sign"></span>
@@ -62,7 +62,7 @@ class App extends React.Component {
                             </div>
                         </form>
 
-                        {tasksArrayMap}
+                        {tachesArrayMap}
 
                     </div>
                 </div>
