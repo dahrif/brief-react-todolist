@@ -1,0 +1,69 @@
+<!DOCTYPE html><html>
+<head>
+  <script src='https://unpkg.com/react/umd/react.development.js'></script>
+  <script src='https://unpkg.com/react-dom/umd/react-dom.development.js'></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<h1>Ajax et API</h1>
+<p>Data from : <a href="https://reqres.in/">https://reqres.in/</a></p>
+<div id="root"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      items: [
+    
+
+      ]
+    };
+    
+    // à ne pas charger les données, ici, il faut les charger 
+    // après render, c'est à dir dans la méthode ComponentDidMount
+    this.loadData();
+  }
+
+  loadData(){
+
+      $.getJSON( "https://reqres.in/api/users", function( result ) {
+
+        console.log(result.data);
+         this.setState({
+           items : result.data
+         });
+    }.bind(this));
+    
+  }
+
+
+  render() {
+
+    return (
+        <ul>
+          {this.state.items.map(item => (
+            <li key={item.id}>
+                
+             <h2>{item.first_name + " " +  item.last_name}</h2>
+             <img src={item.avatar} alt="" />
+            </li>
+          ))}
+        </ul>
+      );
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+
+</script>
+
+
+</body></html>

@@ -1,0 +1,5 @@
+[
+    {"value": "Tâche 1", "done": true},
+    {"value": "Tâche 2", "done": false},
+    {"value": "Tâche 3", "done": false}
+]

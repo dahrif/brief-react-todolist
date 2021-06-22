@@ -1,0 +1,84 @@
+<!DOCTYPE html><html>
+<head>
+  <script src='https://unpkg.com/react/umd/react.development.js'></script>
+  <script src='https://unpkg.com/react-dom/umd/react-dom.development.js'></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<h1>Ajax et API</h1>
+<p>Data from : <a href="https://reqres.in/">https://reqres.in/</a></p>
+<div id="root"></div>
+
+<script type="text/babel">
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
+    
+    // à ne pas charger les données, ici, il faut les charger 
+    // après render, c'est à dir dans la méthode ComponentDidMount
+    this.loadData();
+  }
+
+  loadData(){
+    fetch("https://reqres.in/api/users")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.data
+          });
+        },
+        // Remarque : il est important de traiter les erreurs ici
+        // au lieu d'utiliser un bloc catch(), pour ne pas passer à la trappe
+        // des exceptions provenant de réels bugs du composant.
+        (errorMessage) => {
+          this.setState({
+            isLoaded: true,
+            error : errorMessage
+          });
+        }
+      )
+
+
+  }
+
+
+  render() {
+
+    if (this.state.error) {
+      return <div>Erreur : {this.state.message}</div>;
+    } else if (!this.state.isLoaded) {
+      return <div>Chargement…</div>;
+    } else {
+      return (
+        <ul>
+          {this.state.items.map(item => (
+            <li key={item.id}>
+                
+             <h2>{item.first_name + " " +  item.last_name}</h2>
+             <img src={item.avatar} alt="" />
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+
+</script>
+
+</body></html>
