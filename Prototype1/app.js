@@ -1,8 +1,6 @@
 // Composant : Tâche
 class Tache extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+   
 
     render() {
         let class_name = 'tache'
