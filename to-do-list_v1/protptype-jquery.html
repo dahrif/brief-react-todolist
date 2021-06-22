@@ -8,6 +8,7 @@
 <h1>Ajax et API</h1>
 <p>Data from : <a href="https://reqres.in/">https://reqres.in/</a></p>
 <div id="root"></div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 <script type="text/babel">
 
@@ -17,9 +18,10 @@ class App extends React.Component {
     super(props);
     
     this.state = {
-      error: null,
-      isLoaded: false,
-      items: []
+      items: [
+    
+
+      ]
     };
     
     // à ne pas charger les données, ici, il faut les charger 
@@ -28,38 +30,21 @@ class App extends React.Component {
   }
 
   loadData(){
-    fetch("https://reqres.in/api/users")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.data
-          });
-        },
-        // Remarque : il est important de traiter les erreurs ici
-        // au lieu d'utiliser un bloc catch(), pour ne pas passer à la trappe
-        // des exceptions provenant de réels bugs du composant.
-        (errorMessage) => {
-          this.setState({
-            isLoaded: true,
-            error : errorMessage
-          });
-        }
-      )
 
+      $.getJSON( "https://reqres.in/api/users", function( result ) {
 
+        console.log(result.data);
+         this.setState({
+           items : result.data
+         });
+    }.bind(this));
+    
   }
 
 
   render() {
 
-    if (this.state.error) {
-      return <div>Erreur : {this.state.message}</div>;
-    } else if (!this.state.isLoaded) {
-      return <div>Chargement…</div>;
-    } else {
-      return (
+    return (
         <ul>
           {this.state.items.map(item => (
             <li key={item.id}>
@@ -70,7 +55,6 @@ class App extends React.Component {
           ))}
         </ul>
       );
-    }
   }
 }
 
@@ -80,5 +64,6 @@ ReactDOM.render(
 );
 
 </script>
+
 
 </body></html>

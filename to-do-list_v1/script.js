@@ -24,7 +24,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-       taskList: [{value:"tâche1",done : true}]
+       taskList: []
     };
   }
   componentDidMount() {
@@ -34,7 +34,7 @@ class App extends React.Component {
 
     var dataList = null;
     // Chargement de données par Ajax
-    $.getJSON( "/5-%C3%A9v%C3%A9nements-state/to-do-list_v1/data.json", 
+    $.getJSON( "data.json", 
     function( data ) {
       this.setState({ taskList: data});
     }.bind(this))
