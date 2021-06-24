@@ -105,7 +105,7 @@ class App extends React.Component {
                 </div>
               </div>
             </form>
-            <div class="list">
+            <div className="list">
               {tachesListe}
             </div>
 
