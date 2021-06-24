@@ -19,7 +19,7 @@ i { font-style: normal }
 .tache+.tache { margin-top: -5px }
 .tache-faite {
   background-color: #cbf3f0;
-  border-left-color: #10f0e1;
+  /* border-left-color: #10f0e1; */
   text-decoration: line-through;
   font-style: italic;
 }
@@ -27,3 +27,4 @@ i { font-style: normal }
   background-color: #dfe7fd;
   border-left-color: #245eff;
 }
+

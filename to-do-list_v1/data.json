@@ -1,7 +1,0 @@
-[
-    {"value": "A faire 1", "done": false},
-    {"value": "A faire 2", "done": true},
-    {"value": "A faire 3", "done": true},
-    {"value": "A faire 4", "done": false},
-    {"value": "A faire 5", "done": false}
-]
