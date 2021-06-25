@@ -59,35 +59,53 @@ class App extends React.Component {
         console.log(data)
     }.bind(this)
     })
-    
-    
-  //   if (addInput.value.length != 0) {
-  //    this.state.tasksArray.push({
-  //      value: addInput.value,
-  //      done: false
-  //    })
-     
-     
-  //    this.setState(state => ({
-  //      tasksArray: state.tasksArray
-  //    }));
-
-  //  }
-
-  alert('add')
-
    e.preventDefault()
  }
+
+ removeTache(i) {
+
+    $.ajax({
+    url:"/api/deletetask.php",
+    method:"POST",
+    data:{
+      sid: i
+    },
+    success:function(data) {
+      $(this).parent().remove();
+      this.chargementDonnees()
+    }.bind(this)
+  })
+
+}
+
+markDone(i) {
+  // let tasksArray = this.state.tasksArray
+  // let task = this.state.tasksArray[i]
+  // tasksArray.splice(i, 1)
+  // task.done = !task.done 
+  
+  // task.done ? tasksArray.push(task) : tasksArray.unshift(task)
+
+
+  // this.setState({
+  //   tasksArray: tasksArray
+  // })
+
+  
+
+  
+}
 
 
   render() {
    
-    let tachesArrayMap = this.state.tacheList.map((tache, i) => {
+    let tachesArrayMap = this.state.tacheList.map((tache) => {
       return (
         <Tache 
-          key={i}
+          key={tache.idtasks}
           value={tache.taskname}
           done={tache.done}
+          onClickClose={this.removeTache.bind(this, tache.idtasks)}
         />
       )
     })
