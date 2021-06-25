@@ -1,0 +1,80 @@
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  background-image: url("https://images.pexels.com/photos/2156881/pexels-photo-2156881.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-size: 1.3rem;
+}
+
+h1 {
+  margin: 3rem;
+  font-size: 50px;
+  font-family: 'Righteous', cursive;
+  color: #fff;
+ }
+form { margin-bottom: 20px }
+
+.tache {
+  color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid white;
+  box-shadow: 5px 5px 30px rgba(165, 163, 163, 0.5);
+	padding: 0.5rem 0 0.5rem 0;
+	margin: 1rem;
+}
+.tache:hover {
+  cursor: pointer;
+  opacity: .64;
+}
+.tache p:last-child { margin-bottom: 0 }
+.tache+.tache { margin-top: -5px }
+.tache-faite {
+   background-color: #cbf3f025;
+   text-decoration: line-through;
+   font-style: italic;
+   padding: 8px;
+   padding: 8px;
+   margin: 16px !important;
+}
+.tache-info {
+  padding: 8px;
+  padding: 8px;
+  margin: 16px !important;
+}
+
+.app{
+  padding-bottom: 1.5rem;
+  position: relative;
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 6px;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 5px 5px 30px rgba(165, 163, 163, 0.5);
+  margin-top: 8rem;
+}
+
+.bi-plus-lg{
+  color: #221851;
+}
+
+.btn{
+  background: white !important;
+  border-left: none !important;
+}
+
+@media (max-width: 990px) {
+  h1 {
+      font-size: 40px;
+  }
+}
+
