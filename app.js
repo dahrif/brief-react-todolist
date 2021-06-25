@@ -48,6 +48,8 @@ class App extends React.Component {
 
   }
 
+  //ajouter une tache
+
   addTask(e) {
 
     $.ajax({
@@ -64,6 +66,8 @@ class App extends React.Component {
     e.preventDefault()
   }
 
+  //supprimer une tache
+
   removeTache(i) {
 
     $.ajax({
@@ -79,6 +83,8 @@ class App extends React.Component {
     })
 
   }
+
+  //Tache faite
 
   markDone(i, status) {
 
