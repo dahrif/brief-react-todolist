@@ -67,7 +67,14 @@ form { margin-bottom: 20px }
   color: #221851;
 }
 
-.close{
+.bi-plus-lg:hover{
+  transform: scale(0.6) rotate(360deg)
+
+}
+
+
+
+.close:hover{
     transform: scale(0.6) rotate(360deg)
 }
 
