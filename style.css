@@ -67,6 +67,10 @@ form { margin-bottom: 20px }
   color: #221851;
 }
 
+.close{
+    transform: scale(0.6) rotate(360deg)
+}
+
 .btn{
   background: white !important;
   border-left: none !important;
