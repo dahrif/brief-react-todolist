@@ -141,7 +141,7 @@ class App extends React.Component {
 
       <div className="container">
         <div className="row">
-          <div className="col-sm-6 col-sm-offset-3 mx-auto app">
+          <div className="col-sm-12 col-lg-6 col-sm-offset-3 mx-auto app">
             <h1 className="text-center"> Mes taches</h1>
             <form
               id="form-add"
